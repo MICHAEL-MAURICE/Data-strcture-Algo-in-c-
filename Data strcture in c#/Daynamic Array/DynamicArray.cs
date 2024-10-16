@@ -102,6 +102,40 @@ public class DynamicArray<T>
         // Decrease the count
         _count--;
     }
+    //Right rotation
+
+    public void Right_rotation()
+    {
+        int newcapacity= _array.Length+1;
+        int lastelement= _count-1;
+        T[]_newarray= new T[newcapacity];
+        _newarray[0] = _array[lastelement];
+        for(int i = 0; i < _count-1; i++)
+        {
+            _newarray[i+1] = _array[i];
+        }
+
+        _array = _newarray;
+
+    }
+
+    public void left_rotation()
+    {
+        int newcapacity = _array.Length+1;
+        int lastelement = _count-1;
+        T[] _newarray = new T[newcapacity];
+        _newarray[lastelement] = _array[0];
+        for (int i = 0; i < _count-1; i++)
+        {
+            _newarray[i] = _array[i+1];
+        }
+
+        _array = _newarray;
+
+    }
+
+
+
 
     // Indexer to allow array-like access
     public T this[int index]
