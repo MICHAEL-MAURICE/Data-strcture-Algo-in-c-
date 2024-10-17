@@ -32,6 +32,36 @@ public class DynamicArray<T>
         get { return _array.Length; }
     }
 
+    //pop(int index)
+
+
+    public T pop(int number)
+    {
+        int len = _count - number - 1;
+
+        T []ret = new T[_count-1];
+        int j = 0;
+        T val = _array[len];
+        for(int i = 0; i < _count ; i++)
+        {
+           
+            if (i != len)
+            {
+                ret[j] = _array[i];
+                j++;
+            }
+            
+
+        }
+
+        _array = ret;
+        _count--;
+        return val;
+
+
+    }
+
+
     // Method to add an element to the dynamic array
     public void Add(T item)
     {
@@ -115,6 +145,31 @@ public class DynamicArray<T>
             _newarray[i+1] = _array[i];
         }
 
+        _array = _newarray;
+
+    }
+
+    public void Right_rotation(int num)
+    {
+        int newcapacity = (_array.Length + 1)*num;
+       
+        T[] _newarray = new T[newcapacity];
+        for (int count = 0; count < num; count++)
+        {
+            int lastelement = (_count - 1) - count;
+            _newarray[count] = _array[lastelement];
+        }
+
+
+        //    for (int count = 0; count < num; count++)
+        //{
+        //    int lastelement = (_count - 1)-count;
+        //    _newarray[0] = _array[lastelement];
+            for (int i = 0; i < _count -num; i++)
+            {
+                _newarray[i + num] = _array[i];
+            }
+        //}
         _array = _newarray;
 
     }

@@ -9,10 +9,10 @@ dynamicArray.Add(10);
 dynamicArray.Add(20);
 dynamicArray.Add(30);
 dynamicArray.Add(40);
+dynamicArray.pop(2);
+//dynamicArray.Right_rotation(2);
 
-//dynamicArray.Right_rotation();
-
-dynamicArray.left_rotation();
+//dynamicArray.left_rotation();
 // Access elements by index
 Console.WriteLine("Element at index 2: " + dynamicArray[2]);
 
