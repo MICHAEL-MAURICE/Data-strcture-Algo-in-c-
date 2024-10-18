@@ -8,12 +8,12 @@ namespace Data_strcture_in_c_.Linked_List
 {
     public class Node<T>
     {
-        public T data { get; set; }
+        public T Data { get; set; }
         public Node<T>Next { get; set; }
 
         public Node(T data)
         {
-            data = data;
+            Data = data;
             Next = null;
         }
     }
