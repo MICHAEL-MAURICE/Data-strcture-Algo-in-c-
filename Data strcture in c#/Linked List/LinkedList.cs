@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data_strcture_in_c_.Linked_List;
 
-public class LinkedList<T>
+public class CusLinkedList<T>
 {
     private Node<T> head;
 
-    public LinkedList()
+    public CusLinkedList()
     {
         head = null;
     }
@@ -77,6 +77,55 @@ public class LinkedList<T>
         if (current.Next != null)
         {
             current.Next = current.Next.Next;
+        }
+    }
+
+
+    ~CusLinkedList()
+    {
+        Clear();
+    }
+
+    // Method to clear the LinkedList
+    public void Clear()
+    {
+        Node<T> current = head;
+        while (current != null)
+        {
+            Node<T> temp = current;
+            current = current.Next;
+            temp.Next = null; // Break the link to the next node
+        }
+        head = null; // Set the head to null
+    }
+
+
+    public void Swap2Nodes()
+    {
+        if (head == null || head.Next == null) return; // If the list is empty or has only one node, return.
+
+        Node<T> current = head;
+        head = current.Next; // Update the head to the second node, as it will become the new head after the swap.
+
+        while (current != null && current.Next != null)
+        {
+            Node<T> first = current;
+            Node<T> second = current.Next;
+
+            // Swapping the two nodes
+            first.Next = second.Next;
+            second.Next = first;
+
+            // Move the current pointer two nodes ahead
+            if (first.Next != null && first.Next.Next != null)
+            {
+                current = first.Next;
+                first.Next = current.Next;
+            }
+            else
+            {
+                current = first.Next;
+            }
         }
     }
 }
