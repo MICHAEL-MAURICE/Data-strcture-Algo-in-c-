@@ -52,7 +52,9 @@ intList.AddLast(1);
 intList.AddLast(2);
 intList.AddLast(3);
 intList.AddLast(4);
-intList.Swap2Nodes();
+intList.DeleteEven();
+//intList.ReverseLinkedList();
+/*intList.Swap2Nodes()*/;
 intList.PrintList(); // Output: 1 -> 2 -> 3 -> null
 
 intList.AddFirst(0);

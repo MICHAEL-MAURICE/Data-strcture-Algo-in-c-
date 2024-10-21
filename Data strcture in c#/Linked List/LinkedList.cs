@@ -99,7 +99,26 @@ public class CusLinkedList<T>
         head = null; // Set the head to null
     }
 
+    public void ReverseLinkedList()
+    {
+        if (head == null || head.Next == null) return;
 
+        Node<T> p1 = null; // Previous node
+        Node<T> p2 = head; // Current node
+        Node<T> p3 = head.Next; // Next node
+
+        while (p2 != null) // Continue until we reach the end
+        {
+            p3 = p2.Next; // Store the next node
+            p2.Next = p1; // Reverse the current node's pointer
+
+            // Move all pointers one step forward
+            p1 = p2;
+            p2 = p3;
+        }
+
+        head = p1; // Update the head to be the new first node
+    }
     public void Swap2Nodes()
     {
         if (head == null || head.Next == null) return; // If the list is empty or has only one node, return.
@@ -126,6 +145,29 @@ public class CusLinkedList<T>
             {
                 current = first.Next;
             }
+        }
+    }
+
+    public void DeleteEven()
+    {
+        if (head == null) return; // If the list is empty, return
+
+        Node<T> current = head;
+        int count = 1; // Start with 1-based index
+
+        while (current != null && current.Next != null)
+        {
+            if (count % 2 != 0)
+            {
+                // Delete the next node
+                current.Next = current.Next.Next;
+            }
+            else
+            {
+                // Move to the next node
+                current = current.Next;
+            }
+            count++;
         }
     }
 }
