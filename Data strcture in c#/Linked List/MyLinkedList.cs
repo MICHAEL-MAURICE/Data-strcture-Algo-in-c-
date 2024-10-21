@@ -243,5 +243,21 @@ namespace Data_strcture_in_c_.Linked_List
             }
         }
 
+        public void InsertTobeSorted(T item)
+        {
+            if (item == null) return;
+            Node<T> NewNode = new Node<T>(item);
+            Node<T> current = head;
+
+            while(current != null && current.Next != null) {
+                
+                
+                
+                
+                current = current.Next; }
+
+                
+        }
+
     }
 }
