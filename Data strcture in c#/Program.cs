@@ -52,6 +52,8 @@ intList.AddLast(1);
 intList.AddLast(2);
 intList.AddLast(3);
 intList.AddLast(4);
+intList.InsertTobeSorted(0);
+
 intList.DeleteEven();
 //intList.ReverseLinkedList();
 /*intList.Swap2Nodes()*/;

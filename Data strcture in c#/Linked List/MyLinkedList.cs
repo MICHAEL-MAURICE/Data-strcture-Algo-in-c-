@@ -245,19 +245,37 @@ namespace Data_strcture_in_c_.Linked_List
 
         public void InsertTobeSorted(T item)
         {
-            if (item == null) return;
-            Node<T> NewNode = new Node<T>(item);
+            if (item == null) return; // If the item is null, return
+
+            Node<T> newNode = new Node<T>(item);
+
+            // Case 1: The list is empty, set the new node as the head
+            if (head == null)
+            {
+                head = newNode;
+                return;
+            }
+
+            // Case 2: Insert before the head if the new item is smaller than the head's data
+            if (Comparer<T>.Default.Compare(item, head.Data) < 0)
+            {
+                newNode.Next = head;
+                head = newNode;
+                return;
+            }
+
+            // Case 3: Traverse the list to find the correct insertion point
             Node<T> current = head;
+            while (current.Next != null && Comparer<T>.Default.Compare(item, current.Next.Data) > 0)
+            {
+                current = current.Next; // Move to the next node
+            }
 
-            while(current != null && current.Next != null) {
-                
-                
-                
-                
-                current = current.Next; }
-
-                
+            // Insert the new node at the identified position
+            newNode.Next = current.Next;
+            current.Next = newNode;
         }
+
 
     }
 }
