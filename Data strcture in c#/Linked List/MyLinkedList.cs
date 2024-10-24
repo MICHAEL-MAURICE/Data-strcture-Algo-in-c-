@@ -8,7 +8,7 @@ namespace Data_strcture_in_c_.Linked_List
 {
     public class MyLinkedList<T>
     {
-        public Node<T>head { get; set; }
+        public Node<T> head { get; set; }
         public MyLinkedList()
         {
             head = null;
@@ -16,15 +16,15 @@ namespace Data_strcture_in_c_.Linked_List
 
         public void AddLast(T item)
         {
-            Node<T> newNode= new Node<T>(item);
+            Node<T> newNode = new Node<T>(item);
 
-            if(head==null)head = newNode;
+            if (head == null) head = newNode;
             else
             {
-                Node <T>current= head;
-                while (current.Next!=null)
+                Node<T> current = head;
+                while (current.Next != null)
                 {
-                    current= current.Next;
+                    current = current.Next;
 
                 }
                 current.Next = newNode;
@@ -32,25 +32,26 @@ namespace Data_strcture_in_c_.Linked_List
         }
         public void AddFirst(T item)
         {
-            Node<T>newNode= new Node<T>(item);
+            Node<T> newNode = new Node<T>(item);
             newNode.Next = head;
             head = newNode;
         }
 
         public void Delete(T item)
         {
-            if(head==null) return;
+            if (head == null) return;
             if (EqualityComparer<T>.Default.Equals(head.Data, item))
             {
-                head=head.Next;
+                head = head.Next;
                 return;
             }
             else
             {
-                Node<T> current= head;
-                while (current.Next!=null && !EqualityComparer<T>.Default.Equals(current.Next.Data,item)) { 
-                
-                current= current.Next;
+                Node<T> current = head;
+                while (current.Next != null && !EqualityComparer<T>.Default.Equals(current.Next.Data, item))
+                {
+
+                    current = current.Next;
                 }
                 if (current.Next != null)
                 {
@@ -60,7 +61,7 @@ namespace Data_strcture_in_c_.Linked_List
             }
 
         }
-          
+
 
         public void DeleteFront()
         {
@@ -118,11 +119,12 @@ namespace Data_strcture_in_c_.Linked_List
             {
                 return false;
             }
-            Node<T>current= head;
+            Node<T> current = head;
             Node<T> current2 = other.head;
 
-            while (current!= null && current2!=null ) {
-                if (!EqualityComparer<T>.Default.Equals(current.Data,current2.Data))
+            while (current != null && current2 != null)
+            {
+                if (!EqualityComparer<T>.Default.Equals(current.Data, current2.Data))
                 {
                     return false;
                 }
@@ -130,21 +132,21 @@ namespace Data_strcture_in_c_.Linked_List
                 {
                     current = current.Next;
                     current2 = current2.Next;
-                    
+
                 }
-            
+
             }
-            return  current == null && current2 == null;
+            return current == null && current2 == null;
         }
 
 
         public void DeleteKey(T key)
         {
-            if(head == null) { return; }
-          
-            if (EqualityComparer<T>.Default.Equals(head.Data,key))
+            if (head == null) { return; }
+
+            if (EqualityComparer<T>.Default.Equals(head.Data, key))
             {
-                head=head.Next;
+                head = head.Next;
                 return;
             }
             else
@@ -157,11 +159,12 @@ namespace Data_strcture_in_c_.Linked_List
                     {
                         current.Next = current.Next.Next;
                     }
-                    else { 
-                    current = current.Next;
-                        }
+                    else
+                    {
+                        current = current.Next;
+                    }
                 }
-                
+
 
 
 
@@ -276,6 +279,63 @@ namespace Data_strcture_in_c_.Linked_List
             current.Next = newNode;
         }
 
+        public void Swapheadandtail()
+        {
+            Node<T> current = head;
 
+            Node<T> tail = null;
+            Node<T> pretail = null;
+            if (head == null) { return; }
+            while (current != null && current.Next != null)
+            {
+                if (current.Next.Next == null)
+                {
+                    pretail = current;
+                    tail = current.Next;
+
+                }
+
+
+
+                current = current.Next;
+            }
+
+
+
+
+            tail.Next = head.Next; // Set tail's next to head's next
+            pretail.Next = head;   // Set pretail's next to the original head
+            head.Next = null;      // Set original head's next to null
+            head = tail;
+
+
+        }
+
+
+        public void LeftRoutet()
+        {
+            if (head == null) { return; }
+
+            Node<T> current = head;
+            Node<T> tail = null;
+            Node<T> pretail = null;
+
+            while (current != null && current.Next != null)
+            {
+
+                if (current.Next.Next == null)
+                {
+                    pretail = current;
+                    tail = current.Next;
+                }
+
+                current = current.Next;
+            }
+            tail.Next = head;
+            head = tail;
+            pretail.Next = null;
+
+
+        }
     }
 }

@@ -179,6 +179,62 @@ public class CusLinkedList<T>
         current.Next = newNode;
     }
 
+    public void LeftRoutet()
+    {
+        if (head == null) { return; }
+
+        Node<T> current = head;
+        Node<T> tail = null;
+        Node<T> pretail = null;
+
+        while (current != null && current.Next != null)
+        {
+
+            if (current.Next.Next == null)
+            {
+                pretail = current;
+                tail = current.Next;
+            }
+
+            current = current.Next;
+        }
+        tail.Next = head;
+        head = tail;
+        pretail.Next = null;
+
+
+    }
+    public void Swapheadandtail()
+    {
+        Node<T> current = head;
+       
+        Node<T> tail = null;
+        Node<T> pretail = null;
+        if (head == null) { return; }
+        while (current != null && current.Next != null)
+        {
+            if (current.Next.Next == null)
+            {
+                pretail = current;
+                tail = current.Next;
+
+            }
+
+          
+
+            current = current.Next;
+        }
+
+
+
+
+        tail.Next = head.Next; // Set tail's next to head's next
+        pretail.Next = head;   // Set pretail's next to the original head
+        head.Next = null;      // Set original head's next to null
+        head = tail;
+
+
+    }
     public void DeleteEven()
     {
         if (head == null) return; // If the list is empty, return
