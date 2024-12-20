@@ -99,6 +99,12 @@ public class CusLinkedList<T>
         head = null; // Set the head to null
     }
 
+
+
+   
+
+
+
     public void ReverseLinkedList()
     {
         if (head == null || head.Next == null) return;
