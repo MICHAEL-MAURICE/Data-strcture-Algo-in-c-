@@ -1,6 +1,7 @@
 ﻿// Create a dynamic array of integers
 using Data_strcture_in_c_.Daynamic_Array;
 using Data_strcture_in_c_.Linked_List;
+using Data_strcture_in_c_.Stack;
 
 #region DynamicArray 
 //DynamicArray<int> dynamicArray = new DynamicArray<int>();
@@ -47,35 +48,73 @@ using Data_strcture_in_c_.Linked_List;
 #endregion
 
 #region Linked List
-CusLinkedList<int> intList = new CusLinkedList<int>();
-intList.AddLast(1);
-intList.AddLast(2);
-intList.AddLast(3);
-intList.AddLast(4);
-intList.PrintList();
+//CusLinkedList<int> intList = new CusLinkedList<int>();
+//intList.AddLast(1);
+//intList.AddLast(2);
+//intList.AddLast(3);
+//intList.AddLast(4);
+//intList.PrintList();
 
-intList.PrintList();
-intList.InsertTobeSorted(0);
-intList.LeftRoutet();
-//intList.Swapheadandtail();
-//intList.DeleteEven();
-//intList.ReverseLinkedList();
-/*intList.Swap2Nodes()*/;
-intList.PrintList(); // Output: 1 -> 2 -> 3 -> null
+//intList.PrintList();
+//intList.InsertTobeSorted(0);
+//intList.LeftRoutet();
+////intList.Swapheadandtail();
+////intList.DeleteEven();
+////intList.ReverseLinkedList();
+///*intList.Swap2Nodes()*/;
+//intList.PrintList(); // Output: 1 -> 2 -> 3 -> null
 
-intList.AddFirst(0);
-intList.PrintList(); // Output: 0 -> 1 -> 2 -> 3 -> null
+//intList.AddFirst(0);
+//intList.PrintList(); // Output: 0 -> 1 -> 2 -> 3 -> null
 
-intList.Delete(2);
-intList.PrintList(); // Output: 0 -> 1 -> 3 -> null
+//intList.Delete(2);
+//intList.PrintList(); // Output: 0 -> 1 -> 3 -> null
 
-// Clear the LinkedList manually
-intList.Clear();
-intList.PrintList(); // Output: null
+//// Clear the LinkedList manually
+//intList.Clear();
+//intList.PrintList(); // Output: null
 
-// Optionally, you can force garbage collection (not recommended in most cases)
-GC.Collect();
-GC.WaitForPendingFinalizers();
+//// Optionally, you can force garbage collection (not recommended in most cases)
+//GC.Collect();
+//GC.WaitForPendingFinalizers();
 
+
+#endregion
+
+#region Stack
+//MicStack<int>stack=new MicStack<int>();
+
+
+//stack.Push(1);
+//stack.Push(2);
+//stack.Push(3);
+//stack.Push(4);
+//stack.Push(5);
+//stack.Display();
+//stack.Reverse();
+//stack.Display();
+//stack.Peek();
+//stack.Pop();
+//stack.IsFull();
+//stack.IsEmpty();
+
+//problem 4
+
+MicStack<char> ch = new MicStack<char>();
+//ch.validParth('{');
+//ch.validParth('(');
+//ch.validParth('[');
+//ch.Display();
+//ch.validParth(']');
+//ch.validParth(')');
+//ch.validParth('}');
+//ch.Display();
+
+//Problem 5
+ch.DeleteDuplicate('a');
+ch.DeleteDuplicate('b');
+ch.DeleteDuplicate('b');
+ch.DeleteDuplicate('a');
+ch.Display();
 
 #endregion
